@@ -1,11 +1,19 @@
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addExpense, reduceExpense } from "../context/budgetSlice"
+import { toast } from "react-toastify"
 
 const AllocationForm = () => {
-    const remaining = useSelector((state) => state.budget.remaining)
     const currency = useSelector((state) => state.budget.currency)
+    const expenses = useSelector((state) => state.budget.expenses)
+    const budget = useSelector((state) => state.budget.value)
     const dispatch = useDispatch()
+
+    const totalExpenses = expenses.reduce((total, item) => {
+        return total + item.cost
+    }, 0)
+
+    let remaining = budget - totalExpenses
 
     const [name, setName] = useState("")
     const [cost, setCost] = useState("")
@@ -13,7 +21,9 @@ const AllocationForm = () => {
 
     const submitEvent = () => {
         if (cost > remaining) {
-            alert(`The value cannot exceed remaining funds £${remaining}`)
+            toast.warning(
+                `The value cannot exceed remaining funds £${remaining}`
+            )
             setCost("")
             return
         }
@@ -45,7 +55,6 @@ const AllocationForm = () => {
                         onChange={(event) => setName(event.target.value)}
                         className="border p-2 rounded-md"
                     >
-                        <option defaultValue>Choose...</option>
                         <option value="Marketing" name="marketing">
                             {" "}
                             Marketing
@@ -56,14 +65,11 @@ const AllocationForm = () => {
                         <option value="Finance" name="finance">
                             Finance
                         </option>
-                        <option value="HR" name="hr">
-                            HR
+                        <option value="Human Resource" name="hr">
+                            Human Resource
                         </option>
                         <option value="IT" name="it">
                             IT
-                        </option>
-                        <option value="Admin" name="admin">
-                            Admin
                         </option>
                     </select>
                 </div>

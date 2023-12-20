@@ -7,9 +7,8 @@ const initialState = {
         { id: "Marketing", name: "Marketing", cost: 50 },
         { id: "Finance", name: "Finance", cost: 300 },
         { id: "Sales", name: "Sales", cost: 70 },
-        { id: "HR", name: "HR", cost: 40 },
+        { id: "Human Resource", name: "Human Resource", cost: 40 },
         { id: "IT", name: "IT", cost: 500 },
-        { id: "Admin", name: "Admin", cost: 500 },
     ],
     currency: "£",
 }
@@ -35,7 +34,7 @@ export const budgetSlice = createSlice({
                     return currentExp
                 })
             } else {
-                toast.warning("Cannot increase the allocation! aut of funds")
+                toast.error("Cannot increase the allocation! aut of funds")
             }
         },
         deleteExpense: (state, action) => {
