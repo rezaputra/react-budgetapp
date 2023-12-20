@@ -27,7 +27,7 @@ function ExpenseItem(props) {
             <td className="px-4 py-2 text-center">
                 <button
                     onClick={handleIncreaseAllocation}
-                    className="px-3 py-1 bg-green-500 text-white rounded-lg focus:outline-none"
+                    className="px-3 py-1 bg-green-500 text-white rounded-lg focus:outline-none font-bold"
                 >
                     +
                 </button>
@@ -35,7 +35,7 @@ function ExpenseItem(props) {
             <td className="px-4 py-2 text-center">
                 <button
                     onClick={handleDecreaseAllocation}
-                    className="px-3 py-1 justify-center items-center bg-red-500 text-white rounded-lg focus:outline-none"
+                    className="px-3 py-1 justify-center items-center bg-red-500 text-white rounded-lg focus:outline-none font-bold"
                 >
                     -
                 </button>

@@ -15,7 +15,7 @@ const AllocationForm = () => {
 
     let remaining = budget - totalExpenses
 
-    const [name, setName] = useState("")
+    const [name, setName] = useState("Marketing")
     const [cost, setCost] = useState("")
     const [action, setAction] = useState("")
 
@@ -24,7 +24,7 @@ const AllocationForm = () => {
             toast.warning(
                 `The value cannot exceed remaining funds £${remaining}`
             )
-            setCost("")
+            // setCost("")
             return
         }
 
@@ -52,6 +52,7 @@ const AllocationForm = () => {
                     </label>
                     <select
                         id="inputGroupSelect01"
+                        defaultValue={name}
                         onChange={(event) => setName(event.target.value)}
                         className="border p-2 rounded-md"
                     >
@@ -94,7 +95,7 @@ const AllocationForm = () => {
                     </select>
                 </div>
                 <div className="mx-4">
-                    <span className=" font-semibold">{currency} </span>
+                    <span className=" font-semibold mr-1">{currency} </span>
                     <input
                         required
                         type="number"

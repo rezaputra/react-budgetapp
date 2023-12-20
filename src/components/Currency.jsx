@@ -21,10 +21,10 @@ function Currency() {
                 onChange={handleCurrencyChange}
                 className="border p-2 rounded-md bg-white"
             >
-                <option value="£">Uk(£)</option>
+                <option value="£">Pound(£)</option>
+                <option value="$">Dollar($)</option>
                 <option value="₹">India(₹)</option>
                 <option value="€">Europe(€)</option>
-                <option value="CAD">Canada(CAD)</option>
             </select>
         </div>
     )

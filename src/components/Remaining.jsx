@@ -12,8 +12,10 @@ function Remaining() {
     }, 0)
 
     useEffect(() => {
-        if (budget - totalExpenses < 0) {
-            toast.warn("Cannot increase the allocation! Out of funds")
+        if (budget - totalExpenses <= 0) {
+            toast.warning(
+                "You cannot decrease budget value lower then spanding"
+            )
         }
     }, [budget, totalExpenses])
 

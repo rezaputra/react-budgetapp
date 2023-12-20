@@ -34,7 +34,7 @@ export const budgetSlice = createSlice({
                     return currentExp
                 })
             } else {
-                toast.error("Cannot increase the allocation! aut of funds")
+                toast.error("Cannot increase the allocation! Out of funds")
             }
         },
         deleteExpense: (state, action) => {
